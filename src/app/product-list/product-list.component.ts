@@ -62,17 +62,8 @@ export class ProductListComponent implements OnInit {
       } // Fin While
     }, error => {
       console.log(error) ;
-      if (error.error) {
-        this.httpResponseAllCategories = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllCategories != null) {
-            obtained = true;
-            this.allCategories = this.httpResponseAllCategories;
-            // console.log(this.allCategories) ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
   }
 
@@ -87,7 +78,7 @@ export class ProductListComponent implements OnInit {
           return ({dataState: DataStateEnum.LOADED, data: data})
         }),
         startWith({dataState: DataStateEnum.LOADING}),
-        catchError(err => of({dataState: DataStateEnum.LOADED, errorMessage: err.message, data: err.error}))
+        catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
       );
     } else {
       this.productsList$ =
@@ -98,7 +89,7 @@ export class ProductListComponent implements OnInit {
             return ({dataState: DataStateEnum.LOADED, data: data})
           }),
           startWith({dataState: DataStateEnum.LOADING}),
-          catchError(err => of({dataState: DataStateEnum.LOADED, errorMessage: err.message, data: err.error, dataProcess:this.numberOfProducts = err.error.length}))
+          catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
         );
     }
   }

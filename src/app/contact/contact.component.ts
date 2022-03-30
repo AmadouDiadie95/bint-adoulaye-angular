@@ -46,16 +46,8 @@ export class ContactComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponse = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponse != null) {
-            obtained = true;
-            this.banner = this.httpResponse;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     });
   }
 
@@ -68,7 +60,7 @@ export class ContactComponent implements OnInit {
         return ({dataState:DataStateEnum.LOADED,data:data})
       }),
       startWith({dataState:DataStateEnum.LOADING}),
-      catchError(err=>of({dataState:DataStateEnum.LOADED, errorMessage:err.message, data:err.error, dataProcess:this.dbImage = 'assets/images/mimipedro/'+ err.error.image}))
+      catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
     ) ;
   }
 

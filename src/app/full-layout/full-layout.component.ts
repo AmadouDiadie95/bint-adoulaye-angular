@@ -39,18 +39,8 @@ export class FullLayoutComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      // console.log(error) ;
-      if (error.error) {
-        this.httpResponseAllCategories = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllCategories != null) {
-            obtained = true;
-            this.allCategories = this.httpResponseAllCategories;
-            // console.log(this.allCategories) ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
   }
 
@@ -72,7 +62,7 @@ export class FullLayoutComponent implements OnInit {
     if (this.username != 'ADMIN') {
       this.toastrService.warning('Username Incorrect') ;
     } else {
-      if (this.password != 'Mimi@@Pedro00') {
+      if (this.password != 'Bint@@Abdoulaye00') {
         this.toastrService.warning('Mot de Passe Incorrect !') ;
       } else {
         this.toastrService.success('Authentification Reussie !') ;

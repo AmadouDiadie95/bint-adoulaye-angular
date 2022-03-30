@@ -50,17 +50,8 @@ export class AboutComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error)  {
-        this.httpResponse = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponse != null) {
-            obtained = true;
-            this.banner = this.httpResponse ;
-            this.httpResponse = null ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     });
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -75,17 +66,8 @@ export class AboutComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponse = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponse != null) {
-            obtained = true;
-            this.bannerWWA = this.httpResponse;
-            this.httpResponse = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     });
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -101,17 +83,8 @@ export class AboutComponent implements OnInit {
       } // Fin While
     }, error => {
       console.log(error);
-      if (error.error) {
-        this.httpResponse = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponse != null) {
-            obtained = true;
-            this.bannerTeam1 = this.httpResponse;
-            this.httpResponse = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     });
 
     /*this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -143,17 +116,8 @@ export class AboutComponent implements OnInit {
       } // Fin While
     }, error => {
       console.log(error);
-      if (error.error) {
-        this.httpResponse = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponse != null) {
-            obtained = true;
-            this.bannerTeam3 = this.httpResponse;
-            this.httpResponse = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     });
   }
 
@@ -166,7 +130,7 @@ export class AboutComponent implements OnInit {
         return ({dataState:DataStateEnum.LOADED,data:data})
       }),
       startWith({dataState:DataStateEnum.LOADING}),
-      catchError(err=>of({dataState:DataStateEnum.LOADED, errorMessage:err.message, data:err.error, dataProcess:this.dbImage = 'assets/images/mimipedro/'+ err.error.image}))
+      catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
     ) ;
   }
 

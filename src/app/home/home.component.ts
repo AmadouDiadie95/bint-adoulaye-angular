@@ -97,16 +97,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseAllCategories = error.error ;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllCategories != null) {
-            obtained = true;
-            this.allCategories = this.httpResponseAllCategories;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
   }
 
@@ -123,17 +115,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageHeaderCar1 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -148,17 +131,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageHeaderCar2 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -173,17 +147,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageHeaderBanner1 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -198,17 +163,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageHeaderBanner2 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -223,17 +179,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageHeaderBanner3 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -248,17 +195,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageMiddleBanner = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('images', 'ByIdentifier',
@@ -273,17 +211,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseImages = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseImages != null) {
-            obtained = true;
-            this.imageMiddleBanner2 = this.httpResponseImages;
-            this.httpResponseImages = null;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
 
@@ -303,17 +232,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseAllPopularsProducts = error.error  ;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllPopularsProducts != null) {
-            obtained = true ;
-            this.allPopularsProducts = this.httpResponseAllPopularsProducts ;
-            this.httpResponseAllPopularsProducts = null ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('products', 'ByNewProduct',
@@ -328,17 +248,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.httpResponseAllnewProducts = error.error ;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllnewProducts != null) {
-            obtained = true ;
-            this.allNewProducts = this.httpResponseAllnewProducts;
-            this.httpResponseAllnewProducts = null ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('products', 'ByParticularity',
@@ -351,15 +262,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.promoProduct1 = error.error ;
-        let obtained = false;
-        while (!obtained) {
-          if (this.promoProduct1.id != null) {
-            obtained = true ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
     this.restApiService.findByOneAttribut('products', 'ByParticularity',
@@ -372,15 +276,8 @@ export class HomeComponent implements OnInit {
         }
       } // Fin While
     }, error => {
-      if (error.error) {
-        this.promoProduct2 = error.error ;
-        let obtained = false;
-        while (!obtained) {
-          if (this.promoProduct2.id != null) {
-            obtained = true ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
 
   }
@@ -624,7 +521,7 @@ export class HomeComponent implements OnInit {
         return ({dataState:DataStateEnum.LOADED,data:data})
       }),
       startWith({dataState:DataStateEnum.LOADING}),
-      catchError(err=>of({dataState:DataStateEnum.LOADED, errorMessage:err.message,data:err.error, dataProcess:this.dbImage = 'assets/images/mimipedro/' + err.error.image}))
+      catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
     ) ;
   }
 
@@ -710,7 +607,7 @@ export class HomeComponent implements OnInit {
         return ({dataState:this.DataStateEnum2.LOADED,data:data})
       }),
       startWith({dataState:this.DataStateEnum2.LOADING}),
-      catchError(err=>of({dataState:this.DataStateEnum2.LOADED, errorMessage:err.message,data:err.error}))
+      catchError(err=>of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
     ) ;
   }
 

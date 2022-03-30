@@ -44,17 +44,8 @@ export class CategoryListComponent implements OnInit {
       } // Fin While
     }, error => {
       // console.log(error) ;
-      if (error.error) {
-        this.httpResponseAllCategories = error.error;
-        let obtained = false;
-        while (!obtained) {
-          if (this.httpResponseAllCategories != null) {
-            obtained = true;
-            this.allCategories = this.httpResponseAllCategories;
-            // console.log(this.allCategories) ;
-          }
-        } // Fin While
-      }
+      this.toastrService.error('Erreur lors du chargement de la page, Veuillez Rechargez !');
+      console.log(error);
     }) ;
   }
 
